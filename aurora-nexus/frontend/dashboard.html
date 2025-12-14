@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AURORA NEXUS - Enterprise AI Agent System</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        /* Professional font stack - FIXED for all browsers */
+        * {
+            font-family: 'Segoe UI', system-ui, -apple-system, BlinkMacSystemFont, 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', sans-serif;
+        }
+        
+        .glass-morphism {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .gradient-primary {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+        .gradient-dark {
+            background: linear-gradient(135deg, #1a202c 0%, #2d3748 100%);
+        }
+        .agent-card {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .agent-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+        }
+        .pulse-glow {
+            animation: pulse-glow 2s infinite;
+        }
+        @keyframes pulse-glow {
+            0%, 100% { box-shadow: 0 0 20px rgba(102, 126, 234, 0.4); }
+            50% { box-shadow: 0 0 30px rgba(102, 126, 234, 0.8); }
+        }
+        
+        /* Ensure proper text rendering */
+        body {
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            text-rendering: optimizeLegibility;
+        }
+    </style>
+</head>
+<body class="min-h-screen bg-gray-900 text-white">
+    <!-- Navigation Bar -->
+    <nav class="glass-morphism border-b border-gray-700 sticky top-0 z-50">
+        <div class="container mx-auto px-6 py-4">
+            <div class="flex justify-between items-center">
+                <div class="flex items-center space-x-4">
+                    <div class="w-12 h-12 gradient-primary rounded-xl flex items-center justify-center pulse-glow">
+                        <i class="fas fa-brain text-white text-xl"></i>
+                    </div>
+                    <div>
+                        <h1 class="text-2xl font-bold bg-gradient-to-r from-blue-400 to-purple-500 bg-clip-text text-transparent">AURORA NEXUS</h1>
+                        <p class="text-gray-400 text-sm">Enterprise AI Coordination Platform</p>
+                    </div>
+                </div>
+                <div class="flex items-center space-x-6">
+                    <div class="text-right">
+                        <p class="font-semibold text-white">NTWALI MURHANDIKIRE GENTIL</p>
+                        <p class="text-gray-400 text-sm">AI Systems Architect</p>
+                    </div>
+                    <div class="w-12 h-12 bg-gray-800 rounded-full flex items-center justify-center border border-gray-700">
+                        <i class="fas fa-user-tie text-blue-400"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="relative overflow-hidden gradient-dark">
+        <div class="absolute inset-0 bg-gradient-to-br from-blue-900/20 to-purple-900/20"></div>
+        <div class="container mx-auto px-6 py-20 relative z-10">
+            <div class="max-w-6xl mx-auto text-center">
+                <div class="inline-flex items-center space-x-3 bg-blue-500/10 border border-blue-500/20 rounded-full px-6 py-3 mb-8">
+                    <span class="w-2 h-2 bg-blue-400 rounded-full animate-pulse"></span>
+                    <span class="text-blue-300 text-sm font-medium">SYSTEM STATUS: OPERATIONAL</span>
+                </div>
+                <h1 class="text-5xl font-bold mb-6 leading-tight">
+                    <span class="bg-gradient-to-r from-blue-400 via-purple-500 to-pink-500 bg-clip-text text-transparent">Multi-Agent AI</span><br>
+                    <span class="text-white">Coordination Platform</span>
+                </h1>
+                <p class="text-xl text-gray-300 mb-12 max-w-3xl mx-auto leading-relaxed">
+                    Enterprise-grade AI system coordinating 6 specialized agents to solve complex business challenges with precision and intelligence.
+                </p>
+                <div class="flex justify-center space-x-4">
+                    <button onclick="scrollToDemo()" class="gradient-primary hover:shadow-lg transform hover:scale-105 transition-all duration-300 px-8 py-4 rounded-xl font-semibold text-white">
+                        <i class="fas fa-play mr-3"></i>Live System Demo
+                    </button>
+                    <button onclick="scrollToAgents()" class="glass-morphism hover:bg-white/5 border border-gray-700 px-8 py-4 rounded-xl font-semibold text-white transition-all duration-300">
+                        <i class="fas fa-robot mr-3"></i>View AI Agents
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Agent Grid Section -->
+    <section id="agents" class="py-20 bg-gray-800/50">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold mb-4">Specialized AI Agent Team</h2>
+                <p class="text-gray-400 text-xl max-w-2xl mx-auto">Six highly specialized AI agents working in perfect coordination</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
+                <!-- Agent Cards -->
+                <div class="agent-card glass-morphism rounded-2xl p-8 border-l-4 border-blue-500">
+                    <div class="flex items-start mb-6">
+                        <div class="w-16 h-16 gradient-primary rounded-2xl flex items-center justify-center mr-4">
+                            <i class="fas fa-chess-queen text-white text-2xl"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-2xl font-bold mb-2">Strategic Orchestrator</h3>
+                            <div class="flex items-center text-blue-400">
+                                <span class="text-sm font-semibold">96% Confidence</span>
+                                <div class="w-2 h-2 bg-blue-400 rounded-full ml-2 animate-pulse"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="text-gray-300 mb-6 leading-relaxed">Coordinates all AI agents and synthesizes comprehensive business strategies.</p>
+                    <div class="space-y-2">
+                        <div class="flex items-center text-gray-400">
+                            <i class="fas fa-check-circle text-blue-400 mr-3 text-sm"></i>
+                            <span class="text-sm">Agent Coordination</span>
+                        </div>
+                        <div class="flex items-center text-gray-400">
+                            <i class="fas fa-check-circle text-blue-400 mr-3 text-sm"></i>
+                            <span class="text-sm">Strategy Synthesis</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="agent-card glass-morphism rounded-2xl p-8 border-l-4 border-green-500">
+                    <div class="flex items-start mb-6">
+                        <div class="w-16 h-16 bg-gradient-to-br from-green-500 to-emerald-600 rounded-2xl flex items-center justify-center mr-4">
+                            <i class="fas fa-search text-white text-2xl"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-2xl font-bold mb-2">Market Intelligence</h3>
+                            <div class="flex items-center text-green-400">
+                                <span class="text-sm font-semibold">89% Confidence</span>
+                                <div class="w-2 h-2 bg-green-400 rounded-full ml-2 animate-pulse"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="text-gray-300 mb-6 leading-relaxed">Deep market analysis and competitive intelligence with real-time monitoring.</p>
+                    <div class="space-y-2">
+                        <div class="flex items-center text-gray-400">
+                            <i class="fas fa-check-circle text-green-400 mr-3 text-sm"></i>
+                            <span class="text-sm">Market Research</span>
+                        </div>
+                        <div class="flex items-center text-gray-400">
+                            <i class="fas fa-check-circle text-green-400 mr-3 text-sm"></i>
+                            <span class="text-sm">Competitive Analysis</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="agent-card glass-morphism rounded-2xl p-8 border-l-4 border-purple-500">
+                    <div class="flex items-start mb-6">
+                        <div class="w-16 h-16 bg-gradient-to-br from-purple-500 to-indigo-600 rounded-2xl flex items-center justify-center mr-4">
+                            <i class="fas fa-chart-line text-white text-2xl"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-2xl font-bold mb-2">Business Strategy</h3>
+                            <div class="flex items-center text-purple-400">
+                                <span class="text-sm font-semibold">92% Confidence</span>
+                                <div class="w-2 h-2 bg-purple-400 rounded-full ml-2 animate-pulse"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="text-gray-300 mb-6 leading-relaxed">Business modeling, revenue projections, and strategic planning.</p>
+                    <div class="space-y-2">
+                        <div class="flex items-center text-gray-400">
+                            <i class="fas fa-check-circle text-purple-400 mr-3 text-sm"></i>
+                            <span class="text-sm">Business Modeling</span>
+                        </div>
+                        <div class="flex items-center text-gray-400">
+                            <i class="fas fa-check-circle text-purple-400 mr-3 text-sm"></i>
+                            <span class="text-sm">Revenue Projections</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="agent-card glass-morphism rounded-2xl p-8 border-l-4 border-orange-500">
+                    <div class="flex items-start mb-6">
+                        <div class="w-16 h-16 bg-gradient-to-br from-orange-500 to-red-600 rounded-2xl flex items-center justify-center mr-4">
+                            <i class="fas fa-code text-white text-2xl"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-2xl font-bold mb-2">AI Architecture</h3>
+                            <div class="flex items-center text-orange-400">
+                                <span class="text-sm font-semibold">94% Confidence</span>
+                                <div class="w-2 h-2 bg-orange-400 rounded-full ml-2 animate-pulse"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="text-gray-300 mb-6 leading-relaxed">Technical architecture design and implementation roadmap.</p>
+                    <div class="space-y-2">
+                        <div class="flex items-center text-gray-400">
+                            <i class="fas fa-check-circle text-orange-400 mr-3 text-sm"></i>
+                            <span class="text-sm">System Architecture</span>
+                        </div>
+                        <div class="flex items-center text-gray-400">
+                            <i class="fas fa-check-circle text-orange-400 mr-3 text-sm"></i>
+                            <span class="text-sm">Infrastructure Planning</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="agent-card glass-morphism rounded-2xl p-8 border-l-4 border-pink-500">
+                    <div class="flex items-start mb-6">
+                        <div class="w-16 h-16 bg-gradient-to-br from-pink-500 to-rose-600 rounded-2xl flex items-center justify-center mr-4">
+                            <i class="fas fa-lightbulb text-white text-2xl"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-2xl font-bold mb-2">Innovation & Growth</h3>
+                            <div class="flex items-center text-pink-400">
+                                <span class="text-sm font-semibold">88% Confidence</span>
+                                <div class="w-2 h-2 bg-pink-400 rounded-full ml-2 animate-pulse"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="text-gray-300 mb-6 leading-relaxed">Identifies disruptive opportunities and growth vectors.</p>
+                    <div class="space-y-2">
+                        <div class="flex items-center text-gray-400">
+                            <i class="fas fa-check-circle text-pink-400 mr-3 text-sm"></i>
+                            <span class="text-sm">Opportunity Identification</span>
+                        </div>
+                        <div class="flex items-center text-gray-400">
+                            <i class="fas fa-check-circle text-pink-400 mr-3 text-sm"></i>
+                            <span class="text-sm">Growth Strategy</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="agent-card glass-morphism rounded-2xl p-8 border-l-4 border-red-500">
+                    <div class="flex items-start mb-6">
+                        <div class="w-16 h-16 bg-gradient-to-br from-red-500 to-pink-600 rounded-2xl flex items-center justify-center mr-4">
+                            <i class="fas fa-shield-alt text-white text-2xl"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-2xl font-bold mb-2">Quality Assurance</h3>
+                            <div class="flex items-center text-red-400">
+                                <span class="text-sm font-semibold">98% Confidence</span>
+                                <div class="w-2 h-2 bg-red-400 rounded-full ml-2 animate-pulse"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="text-gray-300 mb-6 leading-relaxed">Ensures enterprise quality standards and validates all outputs.</p>
+                    <div class="space-y-2">
+                        <div class="flex items-center text-gray-400">
+                            <i class="fas fa-check-circle text-red-400 mr-3 text-sm"></i>
+                            <span class="text-sm">Quality Validation</span>
+                        </div>
+                        <div class="flex items-center text-gray-400">
+                            <i class="fas fa-check-circle text-red-400 mr-3 text-sm"></i>
+                            <span class="text-sm">Standards Compliance</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Live Demo Section -->
+    <section id="demo" class="py-20 bg-gray-900">
+        <div class="container mx-auto px-6">
+            <div class="max-w-6xl mx-auto">
+                <div class="text-center mb-16">
+                    <h2 class="text-4xl font-bold mb-4">Live AI Mission Control</h2>
+                    <p class="text-gray-400 text-xl">Experience the power of coordinated AI agents</p>
+                </div>
+
+                <div class="glass-morphism rounded-2xl p-8 border border-gray-700">
+                    <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                        <!-- Input Section -->
+                        <div>
+                            <h3 class="text-2xl font-bold mb-6 text-white">Mission Parameters</h3>
+                            
+                            <div class="space-y-6">
+                                <div>
+                                    <label class="block text-gray-300 mb-3 font-semibold">Business Objective</label>
+                                    <textarea 
+                                        id="missionGoal" 
+                                        class="w-full bg-gray-800 border border-gray-700 rounded-xl p-4 text-white placeholder-gray-500 focus:outline-none focus:border-blue-500 transition-all duration-300"
+                                        rows="5"
+                                        placeholder="Describe your business challenge or strategic objective..."
+                                    ></textarea>
+                                </div>
+
+                                <div>
+                                    <label class="block text-gray-300 mb-3 font-semibold">Mission Priority</label>
+                                    <select 
+                                        id="missionPriority" 
+                                        class="w-full bg-gray-800 border border-gray-700 rounded-xl p-4 text-white focus:outline-none focus:border-blue-500 transition-all duration-300"
+                                    >
+                                        <option value="standard">Standard Priority</option>
+                                        <option value="high">High Priority</option>
+                                        <option value="critical">Critical Priority</option>
+                                    </select>
+                                </div>
+
+                                <button 
+                                    onclick="launchMission()" 
+                                    id="launchBtn"
+                                    class="w-full gradient-primary hover:shadow-lg transform hover:scale-105 transition-all duration-300 py-4 rounded-xl font-semibold text-white text-lg"
+                                >
+                                    <i class="fas fa-rocket mr-3"></i>Launch AI Mission
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Results Section -->
+                        <div>
+                            <h3 class="text-2xl font-bold mb-6 text-white">Mission Results</h3>
+                            <div id="results" class="hidden">
+                                <div class="bg-gradient-to-br from-green-500/10 to-emerald-600/10 border border-green-500/20 rounded-2xl p-6 mb-6">
+                                    <div class="flex items-center mb-4">
+                                        <div class="w-12 h-12 bg-green-500/20 rounded-xl flex items-center justify-center mr-4">
+                                            <i class="fas fa-check-circle text-green-400 text-xl"></i>
+                                        </div>
+                                        <div>
+                                            <h4 class="text-xl font-bold text-green-400">Mission Accomplished!</h4>
+                                            <p class="text-green-300 text-sm">AI agents completed the analysis</p>
+                                        </div>
+                                    </div>
+                                    <div id="resultsContent" class="space-y-4"></div>
+                                </div>
+                            </div>
+
+                            <div id="placeholder" class="text-center py-12">
+                                <div class="w-20 h-20 bg-gray-800 rounded-2xl flex items-center justify-center mx-auto mb-4">
+                                    <i class="fas fa-robot text-gray-600 text-2xl"></i>
+                                </div>
+                                <h4 class="text-lg font-semibold text-gray-400 mb-2">Awaiting Mission Launch</h4>
+                                <p class="text-gray-500 text-sm">Configure mission parameters and launch</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Developer Section -->
+    <section class="py-20 bg-gray-800/50">
+        <div class="container mx-auto px-6">
+            <div class="max-w-4xl mx-auto">
+                <div class="glass-morphism rounded-2xl p-12 text-center">
+                    <div class="w-24 h-24 gradient-primary rounded-2xl flex items-center justify-center mx-auto mb-6">
+                        <i class="fas fa-user-tie text-white text-3xl"></i>
+                    </div>
+                    <h2 class="text-3xl font-bold mb-4">NTWALI MURHANDIKIRE GENTIL</h2>
+                    <p class="text-xl text-gray-300 mb-6">AI Systems Architect & Full-Stack Developer</p>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+                        <div class="flex items-center justify-center text-gray-300">
+                            <i class="fas fa-envelope text-blue-400 mr-3"></i>
+                            <span>ntwalimurhandikire@gmail.com</span>
+                        </div>
+                        <div class="flex items-center justify-center text-gray-300">
+                            <i class="fas fa-globe text-green-400 mr-3"></i>
+                            <span>ntwal.carrd.co</span>
+                        </div>
+                        <div class="flex items-center justify-center text-gray-300">
+                            <i class="fab fa-github text-purple-400 mr-3"></i>
+                            <span>github.com/gentil267</span>
+                        </div>
+                    </div>
+
+                    <div class="border-t border-gray-700 pt-8">
+                        <h4 class="text-lg font-semibold mb-4 text-white">Specialized Expertise</h4>
+                        <div class="flex flex-wrap justify-center gap-3">
+                            <span class="px-4 py-2 bg-blue-500/10 border border-blue-500/20 rounded-full text-blue-300 text-sm">Multi-Agent AI Systems</span>
+                            <span class="px-4 py-2 bg-green-500/10 border border-green-500/20 rounded-full text-green-300 text-sm">Enterprise Architecture</span>
+                            <span class="px-4 py-2 bg-purple-500/10 border border-purple-500/20 rounded-full text-purple-300 text-sm">Business Intelligence</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        function scrollToDemo() {
+            document.getElementById('demo').scrollIntoView({ behavior: 'smooth' });
+        }
+
+        function scrollToAgents() {
+            document.getElementById('agents').scrollIntoView({ behavior: 'smooth' });
+        }
+
+        async function launchMission() {
+            const goal = document.getElementById('missionGoal').value;
+            const priority = document.getElementById('missionPriority').value;
+            const button = document.getElementById('launchBtn');
+            
+            if (!goal.trim()) {
+                alert('Please enter a business objective for the AI agents.');
+                return;
+            }
+
+            // Update UI
+            button.innerHTML = '<i class="fas fa-spinner fa-spin mr-3"></i>AI Agents Processing...';
+            button.disabled = true;
+            document.getElementById('placeholder').classList.add('hidden');
+
+            try {
+                const response = await fetch('http://localhost:8080/api/missions/launch', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ goal, priority })
+                });
+
+                const result = await response.json();
+                
+                // Display results
+                document.getElementById('resultsContent').innerHTML = `
+                    <div class="space-y-6">
+                        <div class="grid grid-cols-2 gap-4">
+                            <div class="bg-gray-800/50 rounded-xl p-4">
+                                <p class="text-gray-400 text-sm">Mission ID</p>
+                                <p class="text-white font-mono text-sm">${result.mission_id}</p>
+                            </div>
+                            <div class="bg-gray-800/50 rounded-xl p-4">
+                                <p class="text-gray-400 text-sm">Overall Confidence</p>
+                                <p class="text-green-400 font-bold text-xl">${(result.total_confidence * 100).toFixed(1)}%</p>
+                            </div>
+                        </div>
+                        
+                        <div class="bg-gray-800/50 rounded-xl p-4">
+                            <p class="text-gray-400 text-sm mb-2">Executive Summary</p>
+                            <p class="text-white">${result.executive_summary}</p>
+                        </div>
+
+                        <div class="space-y-3">
+                            <p class="text-gray-400 text-sm">Agent Performance</p>
+                            ${result.agent_responses.map(agent => `
+                                <div class="flex items-center justify-between bg-gray-800/30 rounded-lg p-3 border border-gray-700">
+                                    <div class="flex items-center">
+                                        <div class="w-3 h-3 bg-green-400 rounded-full mr-3 animate-pulse"></div>
+                                        <span class="text-white font-semibold">${agent.agent_name}</span>
+                                    </div>
+                                    <div class="flex items-center space-x-4">
+                                        <span class="text-gray-400 text-sm">${(agent.confidence * 100).toFixed(0)}%</span>
+                                        <span class="text-blue-400 text-sm">${agent.processing_time}s</span>
+                                    </div>
+                                </div>
+                            `).join('')}
+                        </div>
+                    </div>
+                `;
+                
+                document.getElementById('results').classList.remove('hidden');
+                
+            } catch (error) {
+                document.getElementById('resultsContent').innerHTML = `
+                    <div class="text-center text-red-400">
+                        <i class="fas fa-exclamation-triangle text-2xl mb-2"></i>
+                        <p class="font-semibold">Backend Connection Required</p>
+                        <p class="text-sm mt-2 text-red-300">Start the AI backend server first</p>
+                    </div>
+                `;
+                document.getElementById('results').classList.remove('hidden');
+            }
+
+            // Reset button
+            button.innerHTML = '<i class="fas fa-rocket mr-3"></i>Launch AI Mission';
+            button.disabled = false;
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,5 @@
+PROJECT_NAME="AURORA_NEXUS"
+DEVELOPER="NTWALI MURHANDIKIRE GENTIL"
+CONTACT="ntwalimurhandikire@gmail.com"
+PORTFOLIO="ntwal.carrd.co"
+GITHUB="github.com/gentil267"

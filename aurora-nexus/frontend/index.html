@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AURORA NEXUS - AI System</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { 
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #0f0f23 0%, #1a1a2e 50%, #16213e 100%);
+            color: white; min-height: 100vh; padding: 20px;
+        }
+        .container { max-width: 1200px; margin: 0 auto; }
+        .header { 
+            text-align: center; padding: 40px 0; 
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 20px; margin-bottom: 30px;
+        }
+        .header h1 { font-size: 3.5rem; margin-bottom: 10px; background: linear-gradient(45deg, #00ffff, #ff00ff); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .header p { font-size: 1.2rem; opacity: 0.9; }
+        .developer-info { 
+            background: rgba(255,255,255,0.1); 
+            padding: 25px; border-radius: 15px; 
+            margin-bottom: 30px; backdrop-filter: blur(10px);
+        }
+        .mission-control { 
+            background: rgba(255,255,255,0.05);
+            padding: 30px; border-radius: 15px;
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+        textarea { 
+            width: 100%; height: 120px; 
+            background: rgba(255,255,255,0.1);
+            border: 1px solid rgba(255,255,255,0.3);
+            border-radius: 10px; padding: 15px;
+            color: white; font-size: 16px;
+            margin-bottom: 20px;
+        }
+        button {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white; border: none; padding: 15px 40px;
+            border-radius: 10px; font-size: 18px; cursor: pointer;
+            transition: transform 0.3s;
+        }
+        button:hover { transform: translateY(-2px); }
+        .agent-grid { 
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px; margin-top: 30px;
+        }
+        .agent-card {
+            background: rgba(255,255,255,0.05);
+            padding: 20px; border-radius: 10px;
+            border-left: 4px solid #667eea;
+        }
+        .status-online { color: #00ff00; }
+        .mission-result { 
+            background: rgba(0,255,0,0.1); 
+            padding: 20px; border-radius: 10px;
+            margin-top: 20px; display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🌌 AURORA NEXUS</h1>
+            <p>Universal Multi-Agent AI Coordination Platform</p>
+        </div>
+
+        <div class="developer-info">
+            <h2>👨‍💻 Lead Architect</h2>
+            <p><strong>NTWALI MURHANDIKIRE GENTIL</strong></p>
+            <p>📧 ntwalimurhandikire@gmail.com | 🌐 ntwal.carrd.co</p>
+            <p>📱 +256 740 017 069 | 🎓 Bachelor of Information Technology</p>
+            <p>🚀 AI Systems Specialist & Full-Stack Developer</p>
+        </div>
+
+        <div class="mission-control">
+            <h2>🚀 Mission Control</h2>
+            <textarea id="missionGoal" placeholder="Enter your strategic business goal...&#10;Example: Analyze the competitive AI market and create a go-to-market strategy for enterprise solutions"></textarea>
+            <button onclick="launchMission()">🌌 Launch AI Agents</button>
+            
+            <div id="missionResult" class="mission-result">
+                <h3>🎯 Mission Results</h3>
+                <div id="resultContent"></div>
+            </div>
+        </div>
+
+        <div class="agent-grid">
+            <div class="agent-card">
+                <h3>🔍 Research Agent</h3>
+                <p>Market Intelligence Specialist</p>
+                <p class="status-online">● ONLINE</p>
+            </div>
+            <div class="agent-card">
+                <h3>📊 Analysis Agent</h3>
+                <p>Business Strategy Analyst</p>
+                <p class="status-online">● ONLINE</p>
+            </div>
+            <div class="agent-card">
+                <h3>✍️ Content Agent</h3>
+                <p>Executive Report Creator</p>
+                <p class="status-online">● ONLINE</p>
+            </div>
+            <div class="agent-card">
+                <h3>💻 Tech Agent</h3>
+                <p>AI Architecture Specialist</p>
+                <p class="status-online">● ONLINE</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        async function launchMission() {
+            const goal = document.getElementById('missionGoal').value;
+            if (!goal) return;
+
+            const button = event.target;
+            button.innerHTML = '🚀 AI Agents Processing...';
+            button.disabled = true;
+
+            try {
+                const response = await fetch('http://localhost:8000/missions/launch', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ goal: goal })
+                });
+
+                const result = await response.json();
+                
+                document.getElementById('resultContent').innerHTML = `
+                    <p><strong>Mission ID:</strong> ${result.mission_id}</p>
+                    <p><strong>Status:</strong> ${result.status}</p>
+                    <p><strong>Developer:</strong> ${result.developer}</p>
+                    <p><strong>Portfolio:</strong> ${result.portfolio}</p>
+                    <p>✅ AI agents are now analyzing your business goal...</p>
+                `;
+                document.getElementById('missionResult').style.display = 'block';
+
+            } catch (error) {
+                document.getElementById('resultContent').innerHTML = `
+                    <p>❌ Backend not running. Start the server with: python backend/main.py</p>
+                    <p>Demo mode activated - This demonstrates full-stack capability</p>
+                `;
+                document.getElementById('missionResult').style.display = 'block';
+            }
+
+            button.innerHTML = '🌌 Launch AI Agents';
+            button.disabled = false;
+        }
+    </script>
+</body>
+</html>
